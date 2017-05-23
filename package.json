@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --open"
+    "dev": "webpack-dev-server --open",
+    "start": "browser-sync start --server -f ./index.html ./wave.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/xrr2016/wave#readme",
   "devDependencies": {
+    "browser-sync": "^2.18.12",
     "webpack": "^2.6.0"
   },
   "dependencies": {

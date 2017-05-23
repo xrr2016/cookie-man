@@ -1,1 +1,5 @@
-console.log('wave.js')
+import Wave from './wave'
+
+const w = new Wave()
+
+w.say('haha')

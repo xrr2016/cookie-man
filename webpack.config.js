@@ -1,35 +1,27 @@
 const path = require('path')
 const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: './src/index.js',
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
-    publicPath: '/'
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'cookie-storage.js',
+    library: 'cookie-storage.js',
+    libraryTarget: 'umd'
   },
-  devtool: 'inline-source-map',
-  devServer: {
-    hot: true,
-    contentBase: path.resolve(__dirname, 'dist'),
-    publicPath: '/'
-  },
+  mode: 'production',
   module: {
     rules: [
       {
         test: /\.js$/,
-        use: [ 'babel-loader', ],
-        exclude: /node_modules/
+        include: [path.resolve(__dirname, 'src')],
+        loader: 'babel-loader',
+        options: {
+          presets: ['env']
+        }
       }
-    ],
+    ]
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new HtmlWebpackPlugin({
-      title: 'Wave.js'
-    })
-  ]
+  plugins: [new UglifyJsPlugin()]
 }
-

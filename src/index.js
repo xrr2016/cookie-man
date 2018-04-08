@@ -1,5 +1,15 @@
-import Wave from './wave'
+export const clear = () => {
+  document.cookie = ''
+}
 
-const w = new Wave()
+export const getItem = key => {}
 
-w.say('haha')
+export const key = n => {}
+
+export const length = () => {}
+
+export const removeItem = key => {}
+
+const _opts = {}
+
+export const setItem = (key, value, opts = _opts) => {}

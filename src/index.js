@@ -3,7 +3,6 @@ export const clear = () => {
     const key = c.split('=')[0]
     document.cookie = `${key}=; expires=Thu, 01 Jan 1970 00:00:00 GMT;`
   })
-  return length()
 }
 
 export const getItem = key => {

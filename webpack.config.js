@@ -1,13 +1,13 @@
 const path = require('path')
-// const webpack = require('webpack')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'cookie-storage.js',
-    library: 'cookie-storage.js',
+    filename: 'cookie-man.js',
+    library: 'cookie-man.js',
     libraryTarget: 'umd'
   },
   mode: 'production',
@@ -23,5 +23,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [new UglifyJsPlugin()]
+  plugins: [new CleanWebpackPlugin(['dist']), new UglifyJsPlugin()]
 }
